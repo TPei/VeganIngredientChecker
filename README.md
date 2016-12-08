@@ -14,8 +14,8 @@ Commands
 
 ## Known issues
 - spelling (spaces, dashes etc) needs to match veganpeace.com
-- could potentially match the wrong ingredient (if it is mentioned
-  somewhere else) without the user noticing
+- incomplete names that are part of multiple ingredients (methyl alcohol
+  / cellulose match the first entry)
 
 ## Planned features
 - better handling (guessing) of ingredients by using the closest match

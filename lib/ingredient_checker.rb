@@ -17,7 +17,23 @@ class IngredientChecker
       #list.map!(&:downcase)
 
       matches = list.select { |line| line.downcase.include? ingredient.downcase }
+
+      matches = matches.select do |ele|
+        label_index = [ele.index('(A)'), ele.index('(B)'), ele.index('(V)')].compact.min
+
+        if label_index.nil?
+          false
+        else
+          ele_index = ele.downcase.index(ingredient.downcase)
+          ele_index < label_index
+        end
+      end
+
       matches.sort! { |a, b| a.downcase.index(ingredient.downcase) <=> b.downcase.index(ingredient.downcase) }
+
+      if matches.empty?
+        return 'Hey, sorry, I could not find an ingredient by that name :(. Did you spell it correctly?'
+      end
 
       match = matches[0]
 
