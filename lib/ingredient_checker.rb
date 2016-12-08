@@ -31,7 +31,7 @@ class IngredientChecker
       if match.include? '(A)'
         "Hey, it looks like #{ingredient} is animal-based... Sorry about that :("
       elsif match.include? '(V)'
-        "Hey, it looks like #{ingredient} is vegan... Yay! Go, have at it! :D"
+        "#{ingredient.capitalize} is vegan... Yay! Go, have at it! :D"
       elsif match.include? '(B)'
         "Hmm, this one is tricky. #{ingredient.capitalize} exists in both animal and vegan versions... :S"
       else
