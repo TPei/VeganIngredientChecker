@@ -19,18 +19,7 @@ class IngredientChecker
       ingredient = ingredient.downcase
 
       matches = list.select { |line| line.downcase.include? ingredient }
-
-      matches = matches.select do |ele|
-        label_index = [ele.index('(A)'), ele.index('(B)'), ele.index('(V)')].compact.min
-
-        if label_index.nil?
-          false
-        else
-          ele_index = ele.downcase.index(ingredient)
-          ele_index < label_index
-        end
-      end
-
+      matches = matches.select { |line| title(line).downcase.include? ingredient }
       matches.sort! { |a, b| a.downcase.index(ingredient) <=> b.downcase.index(ingredient) }
 
       if matches.empty?
@@ -51,5 +40,12 @@ class IngredientChecker
     rescue Exception
       'Sorry, I can\'t get a response from the veganpeace.com right now. Please try again later'
     end
+  end
+
+  def self.title(line)
+    label_index = [line.index('(A)'), line.index('(B)'), line.index('(V)')].compact.min
+    line[0..label_index]
+  rescue ArgumentError
+    ''
   end
 end
