@@ -14,9 +14,9 @@ class IngredientChecker
       end
 
       list = res.body.split("\n")
-      #list.map!(&:downcase)
+      ingredient = ingredient.downcase
 
-      matches = list.select { |line| line.downcase.include? ingredient.downcase }
+      matches = list.select { |line| line.downcase.include? ingredient }
 
       matches = matches.select do |ele|
         label_index = [ele.index('(A)'), ele.index('(B)'), ele.index('(V)')].compact.min
@@ -24,12 +24,12 @@ class IngredientChecker
         if label_index.nil?
           false
         else
-          ele_index = ele.downcase.index(ingredient.downcase)
+          ele_index = ele.downcase.index(ingredient)
           ele_index < label_index
         end
       end
 
-      matches.sort! { |a, b| a.downcase.index(ingredient.downcase) <=> b.downcase.index(ingredient.downcase) }
+      matches.sort! { |a, b| a.downcase.index(ingredient) <=> b.downcase.index(ingredient) }
 
       if matches.empty?
         return 'Hey, sorry, I could not find an ingredient by that name :(. Did you spell it correctly?'
@@ -38,9 +38,9 @@ class IngredientChecker
       match = matches[0]
 
       if match.include? '(A)'
-        "Hey, it looks like #{ingredient.downcase} is animal-based... Sorry about that :("
+        "Hey, it looks like #{ingredient} is animal-based... Sorry about that :("
       elsif match.include? '(V)'
-        "Hey, it looks like #{ingredient.downcase} is vegan... Yay! Go, have at it! :D"
+        "Hey, it looks like #{ingredient} is vegan... Yay! Go, have at it! :D"
       elsif match.include? '(B)'
         "Hmm, this one is tricky. #{ingredient.capitalize} exists in both animal and vegan versions... :S"
       else
