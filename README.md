@@ -6,6 +6,8 @@ A Telegram bot that can tell you if an ingredient is vegan or not
 Start a chat with [the bot](http://telegram.me/VeganIngredientBot) and
 ask it about an ingredient!
 
+![the bot](https://raw.githubusercontent.com/TPei/VeganIngredientCheckerBot/master/bot_demo.jpg)
+
 Commands
 - /start - simple instructions
 - /help - help about commands
