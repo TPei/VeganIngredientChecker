@@ -19,7 +19,7 @@ Ask me about an ingredient by:
 /help      - this list of commands
       MESSAGE
     elsif args[0].include?('/check')
-      IngredientChecker.check(args[1..-1])
+      IngredientChecker.check(args[1..-1].join(' '))
     elsif args[0].start_with? '/'
       'Sorry, but I do not know that command'
     else
