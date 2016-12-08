@@ -5,6 +5,8 @@ URL = 'http://www.veganpeace.com/ingredients/ingredients.htm'
 
 class IngredientChecker
   def self.check(ingredient)
+    return 'Please add an ingredient for me to check.' if ingredient.empty?
+
     url = URI.parse(URL)
     req = Net::HTTP::Get.new(url.to_s)
 
