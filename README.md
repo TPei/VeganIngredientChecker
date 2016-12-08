@@ -10,9 +10,10 @@ ask it about an ingredient!
 
 Commands
 - /start - simple instructions
-- /help - help about commands
 - /check ingredient_name - checks veganpeace.com if an ingredient is
   vegan or not (/check is only necessary in group chats)
+- /help - help about commands
+- /info on bot
 
 ## Known issues
 - spelling (spaces, dashes etc) needs to match veganpeace.com

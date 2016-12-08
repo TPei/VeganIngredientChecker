@@ -11,8 +11,12 @@ class IngredientChecker
     req = Net::HTTP::Get.new(url.to_s)
 
     begin
-      res = Net::HTTP.start(url.host, url.port) do |http|
-        http.request(req)
+      begin
+        res = Net::HTTP.start(url.host, url.port) do |http|
+          http.request(req)
+        end
+      rescue Exception
+        'Sorry, I can\'t get a response from the veganpeace.com right now. Please try again later and contact the developer if the problem persits.'
       end
 
       list = res.body.split("\n")
@@ -38,7 +42,7 @@ class IngredientChecker
         "Hmm, I'm confused, I found the ingredient, but no info on whether it's vegan or not"
       end
     rescue Exception
-      'Sorry, I can\'t get a response from the veganpeace.com right now. Please try again later'
+      'Sorry, something went wrong. Please contact contact the developer if this problem persists.'
     end
   end
 
