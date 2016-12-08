@@ -10,7 +10,7 @@ Commands
 - /start - simple instructions
 - /help - help about commands
 - /check ingredient_name - checks veganpeace.com if an ingredient is
-  vegen or not (/check is only necessary in group chats)
+  vegan or not (/check is only necessary in group chats)
 
 ## Known issues
 - spelling (spaces, dashes etc) need to match veganpeace.com
