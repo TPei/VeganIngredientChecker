@@ -23,7 +23,7 @@ Ask me about an ingredient by:
       MESSAGE
     elsif args[0].include?('/info')
       <<-MESSAGE
-Made by github.com/tpei
+Made by @tpei_bots
 
 The code is open source and can be found here: https://github.com/TPei/VeganIngredientCheckerBot
 
